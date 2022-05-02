@@ -3,9 +3,11 @@ kind: Service
 metadata:
   name: onboarding
 spec:
+  type: NodePort
   ports:
   - name: http
     port: 8080
+    nodePort: 30007
     protocol: TCP
     targetPort: http
   selector:

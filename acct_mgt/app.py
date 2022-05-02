@@ -231,11 +231,12 @@ def create_app(**config):
 
         full_name = user_name
         id_user = user_name  # until we support different user names see above.
+        annotations = request.json
 
         user_exists = False
         # use case if User doesn't exist, then create
         if not shift.user_exists(user_name):
-            result = shift.create_user(user_name, full_name)
+            result = shift.create_user(user_name, full_name, annotations=annotations)
             if result.status_code not in (200, 201):
                 return Response(
                     response=json.dumps(

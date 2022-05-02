@@ -381,12 +381,13 @@ class MocOpenShift4x(MocOpenShift):
         return self.client.get(url)
 
     # member functions for users
-    def create_user(self, user_name, full_name):
+    def create_user(self, user_name, full_name, annotations=None):
         url = "/apis/user.openshift.io/v1/users"
         payload = {
             "kind": "User",
             "apiVersion": "user.openshift.io/v1",
-            "metadata": {"name": user_name},
+            "metadata": {"name": user_name,
+                         "annotations": annotations},
             "fullName": full_name,
         }
         return self.client.post(url, json=payload)

@@ -14,7 +14,8 @@ class Client(requests.Session):
     def __init__(self, baseurl=None, token=None, verify=None):
         super().__init__()
         self.baseurl = baseurl if baseurl else self.get_url()
-        self.verify = verify if verify is not None else self.get_ca_path()
+        #self.verify = verify if verify is not None else self.get_ca_path()
+        self.verify = False
         self.token = token if token else self.get_token()
         self.headers["Authorization"] = f"Bearer {self.token}"
 

@@ -20,7 +20,7 @@ spec:
               name: onboarding-credentials
           - configMapRef:
               name: onboarding-config
-        image: openshift-acct-mgt:latest
+        image: ljmcgann/nerc:1.0
         imagePullPolicy: Always
         ports:
           - name: http
